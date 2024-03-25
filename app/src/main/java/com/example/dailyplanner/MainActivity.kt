@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var taskName:ArrayList<String>
     lateinit var taskTime:ArrayList<String>
     lateinit var taskDay:ArrayList<String>
-    lateinit var taskID:ArrayList<String>
+    lateinit var taskID:ArrayList<Int>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 taskName.add(cursor.getString(1))
                 taskTime.add(cursor.getString(2))
                 taskDay.add(cursor.getString(3))
-                taskID.add(cursor.getString(0))
+                taskID.add(cursor.getInt(0))
             }
             println()
         }

@@ -9,4 +9,5 @@
     <string name="testtext">testText</string>
     <string name="texttime">TextTime</string>
     <string name="clear">Очистить</string>
+    <string name="testData">TestData</string>
 </resources>
