@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DailyPlanner</string>
+    <string name="your_planner">Твой ежедневник</string>
+    <string name="day">День</string>
+    <string name="addTask">Добавить задачу</string>
+    <string name="time">Время</string>
+    <string name="task">Задача</string>
+    <string name="newTask">Новая задача</string>
+    <string name="testtext">testText</string>
+    <string name="texttime">TextTime</string>
+    <string name="clear">Очистить</string>
+</resources>
