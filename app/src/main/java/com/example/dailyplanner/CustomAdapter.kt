@@ -7,18 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(context: Context,
-                    tasksID:ArrayList<Int>,
-                    tasks:ArrayList<String>,
-                    tasksTime:ArrayList<String>,
-                    tasksData:ArrayList<String>):
+class CustomAdapter(val context: Context,
+                    var tasksID:ArrayList<Int>,
+                    var tasks:ArrayList<String>,
+                   var tasksTime:ArrayList<String>,
+                   var tasksData:ArrayList<String>):
     RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
-        var thisCon=context
-        var taskID=tasksID
-        var task=tasks
-        var taskTime=tasksTime
-        var taskData=tasksData
-    class MyViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
     lateinit var taskName:TextView
     lateinit var taskTime:TextView
     lateinit var taskData:TextView
@@ -31,7 +26,7 @@ class CustomAdapter(context: Context,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var inflater:LayoutInflater=LayoutInflater.from(thisCon)
+        var inflater:LayoutInflater=LayoutInflater.from(context)
         var view:View=inflater.inflate(R.layout.task_row,parent,false)
 
         return MyViewHolder(view)
@@ -42,6 +37,8 @@ class CustomAdapter(context: Context,
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
+        holder.taskName.text=tasks[position]
+        holder.taskTime.text=tasksTime[position]
+        holder.taskData.text=tasksData[position]
     }
 }
