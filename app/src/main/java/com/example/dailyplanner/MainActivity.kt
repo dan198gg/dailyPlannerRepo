@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -21,12 +23,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonClear).setOnClickListener {
             dbManager.clearDB()
             Toast.makeText(this,"Очищено", Toast.LENGTH_LONG).show()
+            getRecycler()
         }
         findViewById<FloatingActionButton>(R.id.floatingActionButton2).setOnClickListener{
             val intentAdd=Intent(this,AddTaskActivity::class.java)
             startActivity(intentAdd)
         }
-        getData()
+        getRecycler()
     }
     fun getData() {
         val cursor = dbManager.readDB()
@@ -43,5 +46,12 @@ class MainActivity : AppCompatActivity() {
             }
             println()
         }
+    }
+    fun getRecycler(){
+        getData()
+        var recyclerView=findViewById<RecyclerView>(R.id.recyclerView)
+        var customAdapter=CustomAdapter(this,taskID,taskName,taskTime,taskDay)
+        recyclerView.adapter=customAdapter
+        recyclerView.layoutManager=LinearLayoutManager(this)
     }
 }

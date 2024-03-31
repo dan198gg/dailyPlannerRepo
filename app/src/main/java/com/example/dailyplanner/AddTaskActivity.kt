@@ -11,9 +11,9 @@ class AddTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_task)
         findViewById<Button>(R.id.buttonAdd).setOnClickListener {
-            var textTask=findViewById<EditText>(R.id.editTextTask).text.toString()
-            var textTime=findViewById<EditText>(R.id.editTextTime).text.toString()
-            var textDay=findViewById<EditText>(R.id.editTextDay).text.toString()
+            var textTask=findViewById<EditText>(R.id.updateTextTask).text.toString()
+            var textTime=findViewById<EditText>(R.id.updateTextTime).text.toString()
+            var textDay=findViewById<EditText>(R.id.updateTextDay).text.toString()
             var db=MyDbManager(context=this)
             db.insertDb(textTask,textTime,textDay)
             val intentToMain=Intent(this,MainActivity::class.java)

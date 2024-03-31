@@ -10,4 +10,6 @@
     <string name="texttime">TextTime</string>
     <string name="clear">Очистить</string>
     <string name="testData">TestData</string>
+    <string name="updateTask">Обновление задачи</string>
+    <string name="update">обновить</string>
 </resources>
