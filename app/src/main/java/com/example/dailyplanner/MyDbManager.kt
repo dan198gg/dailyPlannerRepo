@@ -4,9 +4,11 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.widget.Toast
+import androidx.core.content.contentValuesOf
 import kotlinx.coroutines.currentCoroutineContext
 
-class MyDbManager(context: Context) {
+class MyDbManager(var context: Context) {
     val myDbHelper = MyDbHelper(context)
     var db: SQLiteDatabase? = null
 
@@ -47,5 +49,25 @@ class MyDbManager(context: Context) {
     fun closeDB() {
         myDbHelper.close()
     }
+    fun updateDB(_id:String,
+                 taskName:String,
+                 taskTime:String,
+                 taskData:String):Int {
+        db = myDbHelper.writableDatabase
+        var contentValues = ContentValues().apply {
+            put(MyDBInfo.COLUMN_NAME_TASK, taskName)
+            put(MyDBInfo.COLUMN_TIME_TASK, taskTime)
+            put(MyDBInfo.COLUMN_DATE_TASK, taskData)
+        }
+        var result=0
+        result = db!!.update(MyDBInfo.TABLE_NAME, contentValues, "_id=?", arrayOf(_id))
+        if (result == -1) {
+            Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "OK!", Toast.LENGTH_SHORT).show()
+        }
+        return result
+    }
+
 }
 

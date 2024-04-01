@@ -3,7 +3,6 @@ package com.example.dailyplanner
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         }
         getRecycler()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+            getRecycler()
+    }
     fun getData() {
         val cursor = dbManager.readDB()
         taskName= ArrayList()
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     fun getRecycler(){
         getData()
         var recyclerView=findViewById<RecyclerView>(R.id.recyclerView)
-        var customAdapter=CustomAdapter(this,taskID,taskName,taskTime,taskDay)
+        var customAdapter=CustomAdapter(this@MainActivity,this,taskID,taskName,taskTime,taskDay)
         recyclerView.adapter=customAdapter
         recyclerView.layoutManager=LinearLayoutManager(this)
     }

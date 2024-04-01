@@ -9,11 +9,13 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(val context: Context,
-                    var tasksID:ArrayList<Int>,
-                    var tasks:ArrayList<String>,
-                   var tasksTime:ArrayList<String>,
-                   var tasksData:ArrayList<String>):
+class CustomAdapter(
+    var activity: MainActivity,
+    val context: Context,
+    var tasksID:ArrayList<Int>,
+    var tasks:ArrayList<String>,
+    var tasksTime:ArrayList<String>,
+    var tasksData:ArrayList<String>):
     RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var taskName: TextView
@@ -51,7 +53,7 @@ class CustomAdapter(val context: Context,
             intent1.putExtra("taskName",tasks[position])
             intent1.putExtra("taskData",tasksData[position])
             intent1.putExtra("taskTime",tasksTime[position])
-            context.startActivity(intent1)
+            activity.startActivityForResult(intent1,1)
 
         }
     }
