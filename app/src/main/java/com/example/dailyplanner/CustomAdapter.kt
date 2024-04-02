@@ -5,6 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,7 @@ class CustomAdapter(
         lateinit var taskName: TextView
         lateinit var taskTime: TextView
         lateinit var taskData: TextView
+        var translateAnim:Animation
         var layoutTask: ConstraintLayout
 
         init {
@@ -28,7 +31,11 @@ class CustomAdapter(
             taskTime = itemView.findViewById(R.id.textTime)
             layoutTask = itemView.findViewById(R.id.rowLayout)
             taskData = itemView.findViewById(R.id.textData)
+            translateAnim=AnimationUtils.loadAnimation(context,R.anim.translate_anim)
+            layoutTask.animation=translateAnim
         }
+
+
 
     }
 

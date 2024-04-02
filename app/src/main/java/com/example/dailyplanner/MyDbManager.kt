@@ -44,6 +44,12 @@ class MyDbManager(var context: Context) {
         return db!!.delete(MyDBInfo.TABLE_NAME, null, null)
 
     }
+    fun deleteTask( _id:String,
+                    taskName:String,
+                    taskTime:String,
+                    taskData:String){
+
+    }
 
 
     fun closeDB() {
