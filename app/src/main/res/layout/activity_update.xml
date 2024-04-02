@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0f1a2b"
     tools:context=".UpdateActivity">
 
     <EditText
@@ -15,6 +16,8 @@
         android:layout_marginEnd="102dp"
         android:ems="10"
         android:hint="@string/task"
+        android:textColorHint="#6A6868"
+        android:textColor="@color/white"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="57dp"
+        android:textColor="@color/white"
         android:layout_marginEnd="102dp"
+        android:textColorHint="#6A6868"
         android:ems="10"
         android:hint="@string/time"
         android:inputType="text"
@@ -41,9 +46,11 @@
         android:layout_marginStart="101dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="100dp"
+        android:textColorHint="#6A6868"
         android:ems="10"
         android:hint="@string/day"
         android:inputType="text"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateTextTime" />
@@ -56,6 +63,9 @@
         android:layout_marginTop="45dp"
         android:layout_marginEnd="175dp"
         android:text="@string/updateTask"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +78,7 @@
         android:layout_marginTop="61dp"
         android:layout_marginEnd="161dp"
         android:text="@string/update"
+        android:backgroundTint="#bc8339"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateTextDay" />
