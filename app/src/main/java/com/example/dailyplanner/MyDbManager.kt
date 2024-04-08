@@ -5,8 +5,6 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.widget.Toast
-import androidx.core.content.contentValuesOf
-import kotlinx.coroutines.currentCoroutineContext
 
 class MyDbManager(var context: Context) {
     val myDbHelper = MyDbHelper(context)
@@ -44,10 +42,11 @@ class MyDbManager(var context: Context) {
         return db!!.delete(MyDBInfo.TABLE_NAME, null, null)
 
     }
-    fun deleteTask( _id:String,
-                    taskName:String,
-                    taskTime:String,
-                    taskData:String){
+    fun deleteTask(
+        _id:String
+    ){
+        openDB()
+        db?.delete(MyDBInfo.TABLE_NAME,"_id=?", arrayOf(_id))
 
     }
 
